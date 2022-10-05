@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+admin_guia,guia.admin,model_abcd_guia,sales_team.group_sale_manager,1,1,1,0
+user_guia,guia.user,model_abcd_guia,sales_team.group_sale_salesman,1,1,1,0

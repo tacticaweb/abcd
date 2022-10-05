@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+    	<record id="abcd_guia_view_form" model="ir.ui.view">
+            <field name="name">abcd.guia.form</field>
+            <field name="model">abcd.guia</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <form>
+				  <header/>
+				  <sheet string="Guia">
+				    <div class="oe_title">
+		                <h1>
+		                    <field name="name" required="1" placeholder="Name..."/>
+		                </h1>
+		                <group>
+		                	<field name="proyecto" required="1"/>
+		                	<field name="visitante" required="1"/>
+		                </group>
+		                <group>
+		                	<field name="fecha_visita" required="1"/>
+		                </group>
+		            </div>
+				    <group>
+				      <group>
+				      	<field name="marcas"/>
+				      </group>
+				      <group>
+				      	<field name="categorias"/>
+				      </group>
+				    </group>
+				    <field name="comentarios" placeholder="Comentario..."/>
+		          </sheet>
+				  <div class="oe_chatter" name="oe_chatter">
+				    <field name="message_follower_ids"/>
+				    <field name="message_ids"/>
+				    <field name="activity_ids"/>
+				  </div>
+				</form>
+            </field>
+        </record>
+        
+        <record id="abcd_guia_view_tree" model="ir.ui.view">
+            <field name="name">abcd.guia.tree</field>
+            <field name="model">abcd.guia</field>
+            <field name="priority" eval="8" />
+            <field name="arch" type="xml">
+                <tree>
+                	<field name="name"/>
+                	<field name="proyecto"/>
+                	<field name="visitante"/>
+                	<field name="fecha_visita"/>
+                	<field name="create_uid" string="Atendido por"/>
+                </tree>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="guia_action">
+             <field name="name">Guias</field>
+             <field name="type">ir.actions.act_window</field>
+             <field name="res_model">abcd.guia</field>
+             <field name="view_mode">tree,form</field>
+             <field name="domain">[]</field>
+             <field name="context">{}</field>
+         </record>
+        
+        <menuitem id="abcd_guia_root" name="Guia" sequence="10" action="guia_action"/>
+        
+    </data>
+</odoo>
