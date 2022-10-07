@@ -39,7 +39,7 @@
 		                	<field name="fecha_visita" required="1"/>
 		                </group>
 		            </div>
-		            <field name="comentario"/>
+		            <field name="comentarios"/>
 		            <notebook>
 				    <page name="marcas" string="Marcas">
 					    <group>
