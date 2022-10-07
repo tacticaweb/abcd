@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<odoo>
+    <data>
+    	<record id="abcd_view_crm_team_form" model="ir.ui.view">
+	        <field name="name">abcd.crm.team.form</field>
+	        <field name="model">crm.team</field>
+	        <field name="inherit_id" ref="sales_team.crm_team_view_form"/>
+	        <field name="arch" type="xml">
+	            <field name="alias_contact" position="after">
+	            	<field name="negociacion"/>
+	            </field>
+	        </field>
+    	</record>
+    	
+    	<record id="abcd_view_res_partner_form" model="ir.ui.view">
+	        <field name="name">abcd.res.partner.form</field>
+	        <field name="model">res.partner</field>
+	        <field name="inherit_id" ref="base.view_partner_form"/>
+	        <field name="arch" type="xml">
+	            <xpath expr="//page[@name='sales_purchases']" position='after'>
+	            	<page name="abcd" string="ABCD">
+	            		<group>
+		            		<field name="arquitecto"/>
+		            		"<!--<field name="quien_refiere"/>
+							<field name="marcas" attrs="{'invisible': [('quien_refiere', '!=','marca')]}"/>
+		            		<field name="otro_cual" attrs="{'invisible': [('quien_refiere', '!=','otro')]}"/>-->
+		            	</group>
+	            	</page>
+	            </xpath>
+	        </field>
+    	</record>
+    	
+    	<record id="abcd_view_crm_lead_form" model="ir.ui.view">
+	        <field name="name">abcd.crm.lead.form</field>
+	        <field name="model">crm.lead</field>
+	        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+	        <field name="arch" type="xml">
+	            <xpath expr="//group[@name='categorization']" position='inside'>
+	            	<field name="origen"/>
+	            </xpath>
+	            <xpath expr="//field[@name='campaign_id']" position='replace'>
+	            	<field name="campaign_id" attrs="{'invisible': [('origen', '!=','cam')]}"/>
+	            </xpath>
+	            <xpath expr="//field[@name='medium_id']" position='replace'>
+	            	<field name="marcas" attrs="{'invisible': [('origen', '!=','marca')]}"/>
+	            </xpath>
+	            <xpath expr="//field[@name='source_id']" position='replace'>
+	            	<field name="arquitecto" attrs="{'invisible': [('origen', '!=','arqui')]}"/>
+	            </xpath>
+	            <xpath expr="//field[@name='referred']" position='replace'>
+	            	<field name="referred" string="Cliente Satisfecho" attrs="{'invisible': [('origen', '!=','cli')]}"/>
+	            </xpath>
+	            <xpath expr="//page[@name='lead']/group/group[3]" position='inside'>
+	            	<field name="origen"/>
+	            </xpath>
+	            <xpath expr="//page[@name='lead']/group/group[3]/field[@name='campaign_id']" position='replace'>
+	            	<field name="campaign_id" attrs="{'invisible': [('origen', '!=','cam')]}"/>
+	            </xpath>
+	            <xpath expr="//page[@name='lead']/group/group[3]/field[@name='medium_id']" position='replace'>
+	            	<field name="marcas" attrs="{'invisible': [('origen', '!=','marca')]}"/>
+	            </xpath>
+	            <xpath expr="//page[@name='lead']/group/group[4]/field[@name='referred']" position='replace'>
+	            	
+	            </xpath>
+	            <xpath expr="//page[@name='lead']/group/group[3]/field[@name='source_id']" position='replace'>
+	            	<field name="arquitecto" attrs="{'invisible': [('origen', '!=','arqui')]}"/>
+	            	<field name="referred" string="Cliente Satisfecho" attrs="{'invisible': [('origen', '!=','cli')]}"/>
+	            </xpath>
+	        </field>
+    	</record>
+    </data>
+</odoo>
