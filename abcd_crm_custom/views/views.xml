@@ -21,10 +21,10 @@
 	            	<page name="abcd" string="ABCD">
 	            		<group>
 		            		<field name="arquitecto"/>
-		            		"<!--<field name="quien_refiere"/>
-							<field name="marcas" attrs="{'invisible': [('quien_refiere', '!=','marca')]}"/>
-		            		<field name="otro_cual" attrs="{'invisible': [('quien_refiere', '!=','otro')]}"/>-->
-		            	</group>
+		            		<field name="quien_refiere"/>
+					<field name="marcas" attrs="{'invisible': [('quien_refiere', '!=','marca')]}"/>
+		            		<field name="otro_cual" attrs="{'invisible': [('quien_refiere', '!=','otro')]}"/>
+				</group>
 	            	</page>
 	            </xpath>
 	        </field>
